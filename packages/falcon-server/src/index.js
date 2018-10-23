@@ -9,6 +9,7 @@ const ExtensionContainer = require('./containers/ExtensionContainer');
 const { EventEmitter2 } = require('eventemitter2');
 const { resolve: resolvePath } = require('path');
 const { readFileSync } = require('fs');
+const GraphQLJSON = require('graphql-type-json');
 const { codes } = require('@deity/falcon-errors');
 const DynamicRouteResolver = require('./resolvers/DynamicRouteResolver');
 
@@ -93,7 +94,8 @@ class FalconServer {
       resolvers: {
         Query: {
           url: (...params) => dynamicRouteResolver.fetchUrl(...params)
-        }
+        },
+        JSON: GraphQLJSON
       },
       tracing: this.config.debug,
       playground: this.config.debug && {

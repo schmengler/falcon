@@ -1,3 +1,5 @@
+scalar JSON
+
 schema {
   query: Query
   mutation: Mutation
