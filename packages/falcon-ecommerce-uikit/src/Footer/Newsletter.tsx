@@ -1,12 +1,13 @@
 import React from 'react';
-import { H2, Text, Group, Input, Button, Checkbox, Label, Box, DefaultThemeProps } from '@deity/falcon-ui';
+import { H3, Text, Group, Input, Button, Checkbox, Label, Box, DefaultThemeProps } from '@deity/falcon-ui';
+import { FooterTranslations } from './FooterQuery';
 
 const newsletterLayoutTheme: DefaultThemeProps = {
   newsletterLayout: {
-    bgFullWidth: 'primaryLight',
-    py: 'lg',
+    bgFullWidth: 'secondaryLight',
+    py: 'md',
+    gridGap: 'sm',
     display: 'grid',
-    gridGap: 'md',
     gridTemplateColumns: '1fr',
     css: {
       maxWidth: 560,
@@ -16,21 +17,19 @@ const newsletterLayoutTheme: DefaultThemeProps = {
   }
 };
 
-export const Newsletter = () => (
+export const Newsletter: React.SFC<{ translations: FooterTranslations }> = ({ translations: { newsletter } }) => (
   <Box defaultTheme={newsletterLayoutTheme}>
-    <H2>Newsletter</H2>
-    <Text>
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum egestas nisl eu accumsan sodales. Nam semper
-      magna vitae enim placerat dictum.
-    </Text>
+    <H3>{newsletter.title}</H3>
+    <Text>{newsletter.message}</Text>
 
     <form>
       <Group>
-        <Input type="email" required />
-        <Button as="input" type="submit" value="Subscribe" />
+        <Input type="email" required height="lg" placeholder={newsletter.emailPlaceholder} />
+        <Button as="input" type="submit" value={newsletter.subscribe} />
       </Group>
-      <Label htmlFor="subscribe" mt="md">
-        <Checkbox id="subscribe" required size={16} mr="xs" />I would like to subscribe to updates
+      <Label htmlFor="subscribe" my="sm" display="flex" justifyContent="center" alignItems="center">
+        <Checkbox id="subscribe" required mr="xs" />
+        {newsletter.consent}
       </Label>
     </form>
   </Box>

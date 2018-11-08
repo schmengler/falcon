@@ -5,6 +5,8 @@ import ChevronUp from 'react-feather/dist/icons/chevron-up';
 import User from 'react-feather/dist/icons/user';
 import Close from 'react-feather/dist/icons/x';
 import Remove from 'react-feather/dist/icons/x-circle';
+import ChevronsRight from 'react-feather/dist/icons/chevrons-right';
+import ChevronsLeft from 'react-feather/dist/icons/chevrons-left';
 import { createTheme } from '@deity/falcon-ui';
 import logo from './assets/logo.svg';
 
@@ -12,7 +14,7 @@ export const deityGreenTheme = createTheme({
   icons: {
     logo: {
       icon: props => <img src={logo} alt="logo" {...props} />,
-      height: 70,
+      height: 'xxxl',
       width: 'auto',
       display: 'block'
     },
@@ -35,9 +37,9 @@ export const deityGreenTheme = createTheme({
           </path>
         </svg>
       ),
-      size: 50,
+      size: 'xxl',
       stroke: 'transparent',
-      fill: 'secondary'
+      fill: 'primary'
     },
     cart: {
       icon: ShoppingCart
@@ -47,12 +49,12 @@ export const deityGreenTheme = createTheme({
     },
     dropdownArrowDown: {
       icon: ChevronDown,
-      size: 22,
+      size: 'md',
       ml: 'xs'
     },
     dropdownArrowUp: {
       icon: ChevronUp,
-      size: 22,
+      size: 'md',
       ml: 'xs'
     },
     close: {
@@ -63,11 +65,21 @@ export const deityGreenTheme = createTheme({
     },
     remove: {
       icon: Remove
+    },
+    nextPage: {
+      icon: ChevronsRight,
+      stroke: 'black'
+    },
+    prevPage: {
+      icon: ChevronsLeft,
+      stroke: 'black'
     }
   },
   components: {
-    button: {
-      boxShadow: 'none'
+    navbar: {
+      css: {
+        zIndex: 2
+      }
     }
   }
 });

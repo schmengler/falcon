@@ -2,7 +2,7 @@
   "name": "@deity/falcon-server",
   "license": "OSL-3.0",
   "main": "src/index.js",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "repository": "https://github.com/deity-io/falcon/tree/master/packages/falcon-server",
   "bin": {
     "falcon-server": "bin/falcon-server.js"
@@ -18,16 +18,17 @@
     "coverageReporters": [
       "html",
       "text",
-      "text-summary"
+      "text-summary",
+      "lcov"
     ],
     "setupFiles": [
       "../../test/nodeEnvSetupFile"
     ]
   },
   "dependencies": {
-    "@deity/falcon-errors": "^0.0.2",
-    "@deity/falcon-logger": "^0.0.2",
-    "@deity/falcon-server-env": "^0.0.2",
+    "@deity/falcon-errors": "^0.0.3",
+    "@deity/falcon-logger": "^0.0.3",
+    "@deity/falcon-server-env": "^0.0.3",
     "@koa/cors": "^2.2.2",
     "apollo-server-koa": "^2.1.0",
     "eventemitter2": "^5.0.1",
@@ -41,5 +42,6 @@
   },
   "devDependencies": {
     "supertest": "3.3.0"
-  }
+  },
+  "gitHead": "d8cd5eede81220aa29563275dcf35448611cc194"
 }

@@ -9,6 +9,12 @@
     "reviews": "{{count}} review",
     "reviews_plural": "{{count}} reviews",
     "addToCart": "Add to cart",
+    "addingToCart": "Adding...",
+    "addedToCart": "Added!",
+    "error": {
+      "qty": "Quantity must be greater than 0",
+      "configurableOptions": "Please select all required options"
+    },
     "tabs": {
       "description": "Description",
       "moreInformation": "More information",
@@ -26,5 +32,13 @@
       "ascending": "ascending",
       "descending": "descending"
     }
-  }
+  },
+  "newsletter": {
+    "title": "Newsletter",
+    "message": "Join our mailing list to receive the latest offers and more!",
+    "subscribe": "Subscribe",
+    "emailPlaceholder": "Enter your email address",
+    "consent": "I would like to subscribe to updates"
+  },
+  "copyright": "© Copyright"
 }

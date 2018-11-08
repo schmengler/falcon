@@ -1,6 +1,6 @@
 {
   "name": "@deity/eslint-config-falcon",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "OSL-3.0",
   "main": "index.js",
   "repository": "https://github.com/deity-io/falcon/tree/master/packages/falcon-dev-tools/eslint-config-falcon",
@@ -16,9 +16,10 @@
     "eslint-plugin-typescript": "^0.12.0",
     "prettier": "^1.14.0",
     "typescript": "3.1.1",
-    "typescript-eslint-parser": "^18.0.0"
+    "typescript-eslint-parser": "^20.0.0"
   },
   "peerDependencies": {
     "eslint": ">=4.13.1"
-  }
+  },
+  "gitHead": "d8cd5eede81220aa29563275dcf35448611cc194"
 }
