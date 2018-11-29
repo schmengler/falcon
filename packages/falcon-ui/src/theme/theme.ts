@@ -2,7 +2,7 @@ export const defaultBaseTheme = {
   colors: {
     primary: '#A9CF38',
     primaryLight: '#CBDE6E',
-    primaryDark: '#A9CF38',
+    primaryDark: '#95b82c',
     primaryText: '#fff',
 
     secondary: '#eef0f2',
@@ -43,7 +43,8 @@ export const defaultBaseTheme = {
   },
 
   fontSizes: {
-    xs: 13,
+    xxs: 12,
+    xs: 14,
     sm: 16,
     md: 20,
     lg: 26,
@@ -60,7 +61,7 @@ export const defaultBaseTheme = {
 
   lineHeights: {
     small: 1,
-    default: 1.4,
+    default: 1.5,
     large: 2
   },
 
@@ -103,6 +104,8 @@ export const defaultBaseTheme = {
     standard: '250ms',
     long: '375ms'
   },
+
+  keyframes: {},
 
   zIndex: {
     dropDownMenu: 600,

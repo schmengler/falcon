@@ -17,9 +17,12 @@
     "apollo-client": "^2.4.2",
     "graphql-tag": "^2.9.2",
     "react": "^16.4.2",
-    "react-apollo": "^2.2.4",
+    "react-apollo": "2.2.4",
     "react-dom": "^16.4.2",
     "react-router-dom": "^4.3.1"
+  },
+  "publishConfig": {
+    "access": "public"
   },
   "scripts": {
     "clean": "rimraf dist",
@@ -30,18 +33,19 @@
     "watch": "babel src -d dist -x .ts,.tsx -s --watch"
   },
   "devDependencies": {
-    "@babel/cli": "7.1.2",
-    "@babel/core": "7.1.2",
+    "@babel/cli": "7.1.5",
+    "@babel/core": "7.1.6",
     "@babel/plugin-proposal-class-properties": "7.1.0",
     "@babel/plugin-proposal-object-rest-spread": "7.0.0",
     "@babel/plugin-transform-runtime": "7.1.0",
-    "@babel/preset-env": "7.1.0",
+    "@babel/preset-env": "7.1.6",
     "@babel/preset-react": "7.0.0",
     "@babel/preset-typescript": "7.1.0",
     "@deity/falcon-ui": "^0.0.3",
-    "@types/react": "16.7.1",
+    "@types/react": "16.7.6",
     "@types/react-dom": "16.0.9",
     "@types/react-i18next": "7.8.3",
+    "@types/react-lazyload": "^2.3.1",
     "@types/react-router-dom": "4.3.1",
     "babel-plugin-annotate-pure-calls": "0.4.0",
     "babel-plugin-module-resolver": "3.1.1",
@@ -63,7 +67,8 @@
   "dependencies": {
     "@babel/runtime": "^7.0.0",
     "formik": "^1.3.1",
-    "react-adopt": "^0.6.0"
+    "react-adopt": "^0.6.0",
+    "react-lazyload": "^2.3.0"
   },
   "gitHead": "d8cd5eede81220aa29563275dcf35448611cc194"
 }

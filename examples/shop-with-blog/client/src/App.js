@@ -3,25 +3,17 @@ import PropTypes from 'prop-types';
 import Route from 'react-router-dom/Route';
 import Switch from 'react-router-dom/Switch';
 import Helmet from 'react-helmet';
-import AsyncComponent from 'src/components/Async';
-import Home from 'src/pages/Home';
 import { Loader } from '@deity/falcon-ecommerce-uikit';
 import { ThemeProvider } from '@deity/falcon-ui';
 import DynamicRoute from '@deity/falcon-client/src/components/DynamicRoute';
 import isOnline from '@deity/falcon-client/src/components/isOnline';
-import logo from 'src/assets/logo.png';
-import {
-  AppLayout,
-  Header,
-  Footer,
-  FooterQuery,
-  HeaderQuery,
-  MiniCartQuery,
-  MiniCart,
-  LocaleProvider
-} from '@deity/falcon-ecommerce-uikit';
+import ScrollToTop from '@deity/falcon-client/src/components/ScrollToTop';
+import { AppLayout, Header, Footer, FooterQuery, HeaderQuery, LocaleProvider } from '@deity/falcon-ecommerce-uikit';
 import { ThemeEditor, ThemeEditorState } from '@deity/falcon-theme-editor';
-
+import AsyncComponent from 'src/components/Async';
+import Home from 'src/pages/Home';
+import logo from 'src/assets/logo.png';
+import { Sidebar, SidebarContainer } from 'src/pages/shop/components/Sidebar';
 import { deityGreenTheme } from './theme';
 
 const HeadMetaTags = () => (
@@ -44,9 +36,21 @@ const Category = AsyncComponent(() => import(/* webpackChunkName: "shop/category
 const Product = AsyncComponent(() => import(/* webpackChunkName: "shop/product" */ './pages/shop/Product'));
 const Blog = AsyncComponent(() => import(/* webpackChunkName: "blog/Blog" */ './pages/blog/Blog'));
 const BlogPost = AsyncComponent(() => import(/* webpackChunkName: "blog/Post" */ './pages/blog/Post'));
+const SidebarContents = AsyncComponent(() =>
+  import(/* webpackChunkName: "shop/SidebarContents" */ './pages/shop/components/Sidebar/SidebarContents')
+);
+
+let ThemeEditorComponent;
+// ThemeEditor gets loaded only in dev mode
+// condition below helps with tree shaking of unused exports
+// so ThemeEditor gets dead code eliminated in production mode
+if (process.env.NODE_ENV !== 'production') {
+  ThemeEditorComponent = ThemeEditor;
+}
 
 const App = ({ online }) => (
   <LocaleProvider>
+    <ScrollToTop />
     <ThemeEditorState initial={deityGreenTheme}>
       {props => (
         <React.Fragment>
@@ -69,10 +73,17 @@ const App = ({ online }) => (
                 />
               </Switch>
               <FooterQuery>{data => <Footer {...data} />}</FooterQuery>
-              <MiniCartQuery>{data => <MiniCart {...data} />}</MiniCartQuery>
+
+              <SidebarContainer>
+                {sidebarProps => (
+                  <Sidebar {...sidebarProps}>
+                    {() => <SidebarContents contentType={sidebarProps.contentType} />}
+                  </Sidebar>
+                )}
+              </SidebarContainer>
             </AppLayout>
           </ThemeProvider>
-          <ThemeEditor {...props} />
+          {ThemeEditorComponent && <ThemeEditorComponent {...props} />}
         </React.Fragment>
       )}
     </ThemeEditorState>
